@@ -6,8 +6,8 @@ public class Ball {
     private int xDirection, yDirection;
     private int[] pixels;
     private Rectangle boundingBox;
-    private int height = 10;
-    private int width = 10;
+    private int height = 30;
+    private int width = 5;
 
     public Ball(int x, int y){
         pixels = new int[width*height];
