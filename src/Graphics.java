@@ -34,7 +34,7 @@ public class Graphics extends Canvas implements Runnable {
         image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
-        Dimension size = new Dimension(scale*width, scale*height);
+        Dimension size = new Dimension(scale * width, scale * height);
         setPreferredSize(size);
         frame = new JFrame();
         frame.setTitle(title);
@@ -45,19 +45,18 @@ public class Graphics extends Canvas implements Runnable {
         frame.setVisible(true);
 
         this.addKeyListener(new MyKeyListener());
-        this.addMouseListener(new MyMouseListener());
         this.requestFocus();
 
-        b = new Ball(200,100);
-        paddle = new Paddle(0,0,0xFFFF0000);
+        b = new Ball(200, 100);
+        paddle = new Paddle(0, 0, 0xFFFF0000);
     }
 
     private void draw() {
-        for (int i = 0 ; i < pixels.length ; i++) {
+        for (int i = 0; i < pixels.length; i++) {
             pixels[i] = 0xFF000000;
         }
-        b.draw(pixels,width);
-        paddle.draw(pixels,width);
+        b.draw(pixels, width);
+        paddle.draw(pixels, width);
 
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
@@ -127,36 +126,14 @@ public class Graphics extends Canvas implements Runnable {
 
         @Override
         public void keyPressed(KeyEvent keyEvent) {
-            paddle.keyPressed(keyEvent);
+            b.keyPressed(keyEvent);
         }
 
         @Override
         public void keyReleased(KeyEvent keyEvent) {
-            paddle.keyReleased(keyEvent);
-        }
-    }
-
-    private class MyMouseListener implements MouseListener {
-        @Override
-        public void mouseClicked(MouseEvent mouseEvent) {
-        }
-
-        @Override
-        public void mousePressed(MouseEvent mouseEvent) {
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent mouseEvent) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent mouseEvent) {
-        }
-
-        @Override
-        public void mouseExited(MouseEvent mouseEvent) {
+            b.keyReleased(keyEvent);
         }
     }
 }
+
 
