@@ -70,6 +70,8 @@ public class Graphics extends Canvas implements Runnable {
         bs.show();
     }
 
+
+
     private void update() {
 
         b.update(paddle.getBoundingBox());
