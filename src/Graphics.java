@@ -48,7 +48,7 @@ public class Graphics extends Canvas implements Runnable {
         this.requestFocus();
 
         b = new Ball(200, 100);
-        paddle = new Paddle(0, 0, 0xFFFF0000);
+        paddle = new Paddle(10, 10, 0xFFFF0000);
     }
 
     private void draw() {

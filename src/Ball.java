@@ -27,7 +27,7 @@ public class Ball {
 
         boundingBox = new Rectangle(x, y, width, height);
 
-/*        Random r = new Random();
+ /*      Random r = new Random();
         int rDir = r.nextInt(1);
         if (rDir == 0) {
             rDir--;
@@ -38,7 +38,7 @@ public class Ball {
             yrDir--;
         }
         setYDirection(yrDir);
-  */  }
+   */ }
 
     public void setXDirection(int xdir) {
         xDirection = xdir;

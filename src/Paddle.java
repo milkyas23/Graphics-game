@@ -1,13 +1,14 @@
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 public class Paddle {
     private int xDirection;
     private int yDirection;
     private int[] pixels;
     private Rectangle boundingBox;
-    private int width = 60;
+    private int width = 30;
     private int height = 60;
 
     public Paddle(int x, int y, int col){
@@ -16,9 +17,22 @@ public class Paddle {
         for (int i = 0 ; i < pixels.length ; i++) {
             pixels[i] = col;
         }
-    }
 
-    public void keyPressed(KeyEvent e){
+        Random r = new Random();
+    int rDir = r.nextInt(1);
+        if (rDir == 0) {
+        rDir--;
+    }
+    setXDirection(rDir);
+    int yrDir = r.nextInt(1);
+        if (yrDir == 0) {
+        yrDir--;
+    }
+    setYDirection(yrDir);
+}
+
+
+  /* public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == e.VK_LEFT){
             setXDirection(-1);
         }
@@ -47,14 +61,14 @@ public class Paddle {
             setYDirection(0);
         }
 
-    }
+}*/
 
     public void setXDirection(int xdir) {
-        xDirection = xdir;
+        xDirection = 3;
     }
 
     public void setYDirection(int ydir){
-        yDirection = ydir;
+        yDirection = 2;
     }
 
     public Rectangle getBoundingBox() {
@@ -63,8 +77,8 @@ public class Paddle {
 
     public void update(){
         boundingBox.x += xDirection;
-        if(boundingBox.x <= 0) {
-            boundingBox.x = 0;
+        if(boundingBox.x <= 1) {
+            boundingBox.x = 1;
         }
         if(boundingBox.x >= 380) {
             boundingBox.x = 380;
