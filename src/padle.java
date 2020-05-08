@@ -1,9 +1,10 @@
 import java.awt.*;
+import java.util.Random;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
-public class Paddle {
+public class padle {
     private int xDirection;
     private int yDirection;
     private int[] pixels;
@@ -11,7 +12,7 @@ public class Paddle {
     private int width = 10;
     private int height = 40;
 
-    public Paddle(int x, int y, int col){
+    public padle(int x, int y, int col){
         boundingBox = new Rectangle(x, y, width, height);
         pixels = new int[width*height];
         for (int i = 0 ; i < pixels.length ; i++) {
@@ -19,49 +20,17 @@ public class Paddle {
         }
 
         Random r = new Random();
-    int rDir = r.nextInt(1);
+        int rDir = r.nextInt(1);
         if (rDir == 0) {
-        rDir--;
-    }
-    setXDirection(rDir);
-    int yrDir = r.nextInt(1);
+            rDir--;
+        }
+        setXDirection(rDir);
+        int yrDir = r.nextInt(1);
         if (yrDir == 0) {
-        yrDir--;
+            yrDir--;
+        }
+        setYDirection(yrDir);
     }
-    setYDirection(yrDir);
-}
-
-
-  /* public void keyPressed(KeyEvent e){
-        if(e.getKeyCode() == e.VK_LEFT){
-            setXDirection(-1);
-        }
-        if(e.getKeyCode() == e.VK_RIGHT){
-            setXDirection(1);
-        }
-        if(e.getKeyCode() == e.VK_UP){
-            setYDirection(-1);
-        }
-        if(e.getKeyCode() == e.VK_DOWN){
-            setYDirection(1);
-        }
-    }
-
-    public void keyReleased(KeyEvent e){
-        if(e.getKeyCode() == e.VK_LEFT){
-            setXDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_RIGHT){
-            setXDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_UP){
-            setYDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_DOWN){
-            setYDirection(0);
-        }
-
-}*/
 
     public void setXDirection(int xdir) { xDirection = 1; }
 

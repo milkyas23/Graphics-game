@@ -26,6 +26,8 @@ public class Graphics extends Canvas implements Runnable {
 
     private Ball b;
     private Paddle paddle;
+    private Paddle padle;
+
 
     public Graphics(int w, int h, int scale) {
         this.width = w;
@@ -49,6 +51,7 @@ public class Graphics extends Canvas implements Runnable {
 
         b = new Ball(200, 100);
         paddle = new Paddle(10, 10, 0xFFFF0000);
+
     }
 
     private void draw() {
@@ -75,8 +78,12 @@ public class Graphics extends Canvas implements Runnable {
     private void update() {
 
         b.update(paddle.getBoundingBox());
+        b.update( padle.getBoundingBox());
         paddle.update();
+        padle.update();
     }
+
+
 
     public synchronized void start() {
         running = true;
