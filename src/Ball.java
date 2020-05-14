@@ -40,21 +40,13 @@ public class Ball {
         setYDirection(yrDir);
    */ }
 
-    public void setXDirection(int xdir) {
-        xDirection = xdir;
-    }
+    public void setXDirection(int xdir) {xDirection = xdir;}
 
-    public void setYDirection(int ydir) {
-        yDirection = ydir;
-    }
+    public void setYDirection(int ydir) {yDirection = ydir;}
 
-    public int getXDirection() {
-        return xDirection;
-    }
+    public int getXDirection() {return xDirection;}
 
-    public int getYDirection() {
-        return yDirection;
-    }
+    public int getYDirection() {return yDirection;}
 
     public void move() {
         boundingBox.x += xDirection;

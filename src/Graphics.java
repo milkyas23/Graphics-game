@@ -26,7 +26,19 @@ public class Graphics extends Canvas implements Runnable {
 
     private Ball b;
     private Paddle paddle;
-    private Paddle padle;
+    private Paddle paddle1;
+    private Paddle paddle2;
+    private Paddle paddle3;
+    private Paddle paddle4;
+    private Paddle paddle5;
+    private Paddle paddle6;
+    private Paddle paddle7;
+    private Paddle paddle8;
+    private Paddle paddle9;
+
+
+
+
 
 
     public Graphics(int w, int h, int scale) {
@@ -50,7 +62,21 @@ public class Graphics extends Canvas implements Runnable {
         this.requestFocus();
 
         b = new Ball(200, 100);
-        paddle = new Paddle(10, 10, 0xFFFF0000);
+        paddle = new Paddle(10, 10, 0xFF00000);
+        paddle1 = new Paddle(50, 10, 0xFF00000);
+        paddle2 = new Paddle(90, 10, 0xFF0f000);
+        paddle3 = new Paddle(130, 10, 0xFF00f00);
+        paddle4 = new Paddle(170, 10, 0xFF00000);
+        paddle5 = new Paddle(210, 10, 0xFF00ff0);
+        paddle6 = new Paddle(250, 10, 0xFF00000);
+        paddle7 = new Paddle(290, 10, 0xFF00000);
+        paddle8 = new Paddle(330, 10, 0xFF00000);
+        paddle9 = new Paddle(370, 10, 0xFF00000);
+
+
+
+
+
 
     }
 
@@ -60,6 +86,21 @@ public class Graphics extends Canvas implements Runnable {
         }
         b.draw(pixels, width);
         paddle.draw(pixels, width);
+        paddle1.draw(pixels, width);
+        paddle2.draw(pixels, width);
+        paddle3.draw(pixels, width);
+        paddle4.draw(pixels, width);
+        paddle5.draw(pixels, width);
+        paddle6.draw(pixels, width);
+        paddle7.draw(pixels, width);
+        paddle8.draw(pixels, width);
+        paddle9.draw(pixels, width);
+
+
+
+
+
+
 
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
@@ -78,9 +119,31 @@ public class Graphics extends Canvas implements Runnable {
     private void update() {
 
         b.update(paddle.getBoundingBox());
-        b.update( padle.getBoundingBox());
+        b.update(paddle1.getBoundingBox());
+        b.update(paddle2.getBoundingBox());
+        b.update(paddle3.getBoundingBox());
+        b.update(paddle4.getBoundingBox());
+        b.update(paddle5.getBoundingBox());
+        b.update(paddle6.getBoundingBox());
+        b.update(paddle7.getBoundingBox());
+        b.update(paddle8.getBoundingBox());
+        b.update(paddle9.getBoundingBox());
+
+
+
         paddle.update();
-        padle.update();
+        paddle1.update();
+        paddle2.update();
+        paddle3.update();
+        paddle4.update();
+        paddle5.update();
+        paddle6.update();
+        paddle7.update();
+        paddle8.update();
+        paddle9.update();
+
+
+
     }
 
 

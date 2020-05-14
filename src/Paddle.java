@@ -8,7 +8,7 @@ public class Paddle {
     private int yDirection;
     private int[] pixels;
     private Rectangle boundingBox;
-    private int width = 10;
+    private int width = 30;
     private int height = 40;
 
     public Paddle(int x, int y, int col){
@@ -18,7 +18,9 @@ public class Paddle {
             pixels[i] = col;
         }
 
-        Random r = new Random();
+
+
+       Random r = new Random();
     int rDir = r.nextInt(1);
         if (rDir == 0) {
         rDir--;
@@ -32,42 +34,14 @@ public class Paddle {
 }
 
 
-  /* public void keyPressed(KeyEvent e){
-        if(e.getKeyCode() == e.VK_LEFT){
-            setXDirection(-1);
-        }
-        if(e.getKeyCode() == e.VK_RIGHT){
-            setXDirection(1);
-        }
-        if(e.getKeyCode() == e.VK_UP){
-            setYDirection(-1);
-        }
-        if(e.getKeyCode() == e.VK_DOWN){
-            setYDirection(1);
-        }
-    }
 
-    public void keyReleased(KeyEvent e){
-        if(e.getKeyCode() == e.VK_LEFT){
-            setXDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_RIGHT){
-            setXDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_UP){
-            setYDirection(0);
-        }
-        if(e.getKeyCode() == e.VK_DOWN){
-            setYDirection(0);
-        }
 
-}*/
 
-    public void setXDirection(int xdir) { xDirection = 1; }
 
-    public void setYDirection(int ydir){
-        yDirection = 1;
-    }
+
+    public void setXDirection(int xdir) { xDirection = 0; }
+
+    public void setYDirection(int ydir){ yDirection = 1; }
 
     public Rectangle getBoundingBox() { return boundingBox ;}
 
@@ -83,8 +57,8 @@ public class Paddle {
         if(boundingBox.y <= 0) {
             boundingBox.y = 0;
         }
-        if(boundingBox.y >= 280) {
-            boundingBox.y = 280;
+        if(boundingBox.y >= 259) {
+            boundingBox.y = 10;
         }
     }
 
