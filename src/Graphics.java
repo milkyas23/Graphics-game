@@ -28,7 +28,6 @@ public class Graphics extends Canvas implements Runnable {
     private Paddle paddle;
     private Paddle paddle1;
     private Paddle paddle2;
-    private Paddle paddle3;
     private Paddle paddle4;
     private Paddle paddle5;
     private Paddle paddle6;
@@ -40,12 +39,13 @@ public class Graphics extends Canvas implements Runnable {
 
 
 
+    private Paddle paddle3;
 
     public Graphics(int w, int h, int scale) {
         this.width = w;
-        this.height = h;
         this.scale = scale;
         image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        this.height = h;
 
         pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
         Dimension size = new Dimension(scale * width, scale * height);
@@ -61,23 +61,17 @@ public class Graphics extends Canvas implements Runnable {
         this.addKeyListener(new MyKeyListener());
         this.requestFocus();
 
-        b = new Ball(200, 100);
-        paddle = new Paddle(10, 10, 0xFF00000);
-        paddle1 = new Paddle(50, 10, 0xFF00000);
-        paddle2 = new Paddle(90, 10, 0xFF0f000);
-        paddle3 = new Paddle(130, 10, 0xFF00f00);
-        paddle4 = new Paddle(170, 10, 0xFF00000);
-        paddle5 = new Paddle(210, 10, 0xFF00ff0);
+        b = new Ball(200, 230);
+        paddle = new Paddle(10, 1, 0xFF00000);
+        paddle1 = new Paddle(50, 190, 0xFF000ff);
+        paddle2 = new Paddle(90, 80, 0xFF0f000);
+        paddle3 = new Paddle(130, 180, 0xFF00f00);
+        paddle4 = new Paddle(170, 10, 0xFF000ff);
+        paddle5 = new Paddle(210, 80, 0xFF00ff0);
         paddle6 = new Paddle(250, 10, 0xFF00000);
-        paddle7 = new Paddle(290, 10, 0xFF00000);
-        paddle8 = new Paddle(330, 10, 0xFF00000);
-        paddle9 = new Paddle(370, 10, 0xFF00000);
-
-
-
-
-
-
+        paddle7 = new Paddle(290, 120, 0xFF00000);
+        paddle8 = new Paddle(330, 1, 0xFF000ff);
+        paddle9 = new Paddle(370, 150, 0xFF0f000);
     }
 
     private void draw() {
@@ -96,29 +90,20 @@ public class Graphics extends Canvas implements Runnable {
         paddle8.draw(pixels, width);
         paddle9.draw(pixels, width);
 
-
-
-
-
-
-
         BufferStrategy bs = getBufferStrategy();
         if (bs == null) {
             createBufferStrategy(3);
             return;
         }
-
         java.awt.Graphics g = bs.getDrawGraphics();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
         g.dispose();
         bs.show();
     }
 
-
-
     private void update() {
-
         b.update(paddle.getBoundingBox());
+/*
         b.update(paddle1.getBoundingBox());
         b.update(paddle2.getBoundingBox());
         b.update(paddle3.getBoundingBox());
@@ -128,25 +113,38 @@ public class Graphics extends Canvas implements Runnable {
         b.update(paddle7.getBoundingBox());
         b.update(paddle8.getBoundingBox());
         b.update(paddle9.getBoundingBox());
-
-
-
+*/
         paddle.update();
+        if (b.collision(paddle.getBoundingBox()))
+            running = false;
         paddle1.update();
+        if (b.collision(paddle1.getBoundingBox()))
+            running = false;
         paddle2.update();
+        if (b.collision(paddle2.getBoundingBox()))
+            running = false;
         paddle3.update();
+        if (b.collision(paddle3.getBoundingBox()))
+            running = false;
         paddle4.update();
+        if (b.collision(paddle4.getBoundingBox()))
+            running = false;
         paddle5.update();
+        if (b.collision(paddle5.getBoundingBox()))
+            running = false;
         paddle6.update();
+        if (b.collision(paddle6.getBoundingBox()))
+            running = false;
         paddle7.update();
+        if (b.collision(paddle7.getBoundingBox()))
+            running = false;
         paddle8.update();
+        if (b.collision(paddle8.getBoundingBox()))
+            running = false;
         paddle9.update();
-
-
-
+        if (b.collision(paddle9.getBoundingBox()))
+            running = false;
     }
-
-
 
     public synchronized void start() {
         running = true;
