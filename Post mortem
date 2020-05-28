@@ -1,0 +1,8 @@
+Graphics-spel
+Arbetes syfte är att skapa en spel med interaktiv grafik genom att redigera en given kod.
+Jag utväcklar en given kod till en en spel som är inspererad av y8 spel (slop).
+En av de teknik jag använde är "paddle2 = new Paddle(90, 80, 0xFF0f000);" för att bestäma padelns position och färg.
+Arbetets planering var att skapa en kontrollbar ball och sedan multipucerar/omförma panelerna och läga de i rörelse (upp ifrån skärmen neråt i ålika höjder utan oavbruten) sedan avsluta med att spelet stopas om ballen och panelen koliderar.
+En av de positiva erfaranheter är moltiplucering av panelerna, det gick bra och smidigt utan något hjälp.
+Den negativa erfaranheten är var starten på projekten, att clona någons kode ifrån början jar inte så en enkelt men man kan undivika genom att följa instruktioner.
+I slut ändan så fick jag in fungerande spel som jag har tänkt mig, men det kunde har utväcklat genom att lägga npågra futures till exemple lägga till låtar, texter som "you win" or "you lost". 
